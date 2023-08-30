@@ -1,9 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { FormDataDto } from '@/models/form.dto';
+import { SheetService } from '@/services/sheet.service';
+
+
 
 @Injectable()
 export class AppService {
-  async processFormData(formData: FormDataDto): Promise<FormDataDto> {
-    return formData;
+  constructor(private readonly sheetService: SheetService) { }
+
+  async processFormData(formData: FormDataDto) {
+    return this.sheetService.processFormData(formData);
   }
 }
