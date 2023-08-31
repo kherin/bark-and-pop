@@ -2,14 +2,13 @@ import { Controller, Post, Body, InternalServerErrorException } from '@nestjs/co
 
 // services
 import { AppService } from '@/services/app.service';
-import { SheetService } from '@/services/sheet.service';
 
 // models
 import { FormDataDto } from '@/models/form.dto';
 
 @Controller('form')
 export class AppController {
-  constructor(private readonly appService: AppService, private readonly sheetService: SheetService) { }
+  constructor(private readonly appService: AppService) { }
 
   @Post('submit')
   async submitForm(@Body() formData: FormDataDto) {
