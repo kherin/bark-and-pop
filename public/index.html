@@ -4,29 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
-    <link href="css/tailwind.css" rel="stylesheet">
+    <title>Bark & Pop</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-white">
     <!-- Animated SVG Logo at the Top -->
-    <div class="bg-blue-600 py-4">
-        <div class="container mx-auto">
-            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
-                <!-- Your SVG Logo Here -->
-                <circle cx="100" cy="100" r="80" fill="white" />
-                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="blue" font-size="48">
-                    Your Logo
-                </text>
-            </svg>
+    <div>
+        <div class="container flex justify-center mx-auto">
+            <object class="w-1/4 h-1/4" type="image/svg+xml" data="img/logo.svg">
+                <img src="img/logo.svg" class="w-1/4 h-1/4" alt="svg logo">
+            </object>
         </div>
     </div>
 
     <!-- Form to Capture Name, Email, and Address at the Bottom -->
     <div class="container mx-auto py-8">
-        <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <div class="max-w-md mx-auto bg-purple-100 p-6 rounded-lg shadow-xl">
             <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
-            <form>
+            <form id="contactForm" onsubmit="return false">
                 <div class="mb-4">
                     <label for="name" class="block text-gray-600 font-semibold mb-2">Name</label>
                     <input type="text" id="name" name="name"
@@ -39,28 +35,30 @@
                 </div>
                 <div class="mb-4">
                     <label for="address" class="block text-gray-600 font-semibold mb-2">Address</label>
-                    <textarea id="address" name="address" rows="4"
-                        class="w-full px-4 py-2 rounded border focus:outline-none focus:border-blue-400"
-                        required></textarea>
+                    <textarea id="address" name="address" rows="2"
+                        class="w-full px-4 py-2 rounded border focus:outline-none focus:border-blue-400"></textarea>
                 </div>
                 <div class="text-center">
-                    <button type="submit"
-                        class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+                    <button id="submitForm" type="submit"
+                        class="bg-purple-500 text-white px-6 py-3 rounded-full hover:bg-blue-700 focus:outline-none focus:bg-blue-700 shadow-xl">
                         Submit
                     </button>
                 </div>
             </form>
         </div>
-    </div>
+        <div class="fixed bottom-0 right-0 p-4">
+            <!-- TOAST SUCCESS -->
+            <div class="bg-green-500 text-white px-4 py-2 rounded shadow-md" id="toastSuccess" style="display: none;">
+                Successfully submitted form!
+            </div>
 
-    <!-- Optional JavaScript for Animation -->
-    <script>
-        const logo = document.querySelector('svg');
-        logo.addEventListener('click', () => {
-            // Your animation code here (e.g., change logo color, scale, etc.)
-            // Example: logo.style.fill = 'red';
-        });
-    </script>
+            <!-- TOAST FAILURE -->
+            <div class="bg-red-500 text-white px-4 py-2 rounded shadow-md" id="toastFailure" style="display: none;">
+                Failed to submit form. Please try again!
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js" type="text/javascript"></script>
 </body>
 
 </html>
