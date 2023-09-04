@@ -1,44 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>My Nest.js HTML Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link href="css/tailwind.css" rel="stylesheet">
 </head>
 
-<body>
-    <h1>Hello, Nest.js!</h1>
-    <div>
-        <form id="customer-form">
-            <input type="text" name="name" placeholder="Name">
-            <input type="email" name="email" placeholder="Email">
-            <input type="address" name="address" placeholder="Address">
-            <button type="submit">Submit</button>
-        </form>
+<body class="bg-gray-100">
+    <!-- Animated SVG Logo at the Top -->
+    <div class="bg-blue-600 py-4">
+        <div class="container mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                <!-- Your SVG Logo Here -->
+                <circle cx="100" cy="100" r="80" fill="white" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="blue" font-size="48">
+                    Your Logo
+                </text>
+            </svg>
+        </div>
     </div>
+
+    <!-- Form to Capture Name, Email, and Address at the Bottom -->
+    <div class="container mx-auto py-8">
+        <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-600 font-semibold mb-2">Name</label>
+                    <input type="text" id="name" name="name"
+                        class="w-full px-4 py-2 rounded border focus:outline-none focus:border-blue-400" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-600 font-semibold mb-2">Email</label>
+                    <input type="email" id="email" name="email"
+                        class="w-full px-4 py-2 rounded border focus:outline-none focus:border-blue-400" required>
+                </div>
+                <div class="mb-4">
+                    <label for="address" class="block text-gray-600 font-semibold mb-2">Address</label>
+                    <textarea id="address" name="address" rows="4"
+                        class="w-full px-4 py-2 rounded border focus:outline-none focus:border-blue-400"
+                        required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit"
+                        class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript for Animation -->
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const form = document.querySelector('#customer-form');
-            form.addEventListener('submit', async (event) => {
-                event.preventDefault();
-
-                const formData = new FormData(form);
-                const data = {
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    address: formData.get('address')
-                };
-
-                const response = await fetch('/form/submit', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                });
-
-                const result = await response.json();
-                console.log(result);
-            });
+        const logo = document.querySelector('svg');
+        logo.addEventListener('click', () => {
+            // Your animation code here (e.g., change logo color, scale, etc.)
+            // Example: logo.style.fill = 'red';
         });
     </script>
 </body>
