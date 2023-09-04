@@ -5,6 +5,9 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "engines": {
+    "node": "16.14.0"
+  },
   "scripts": {
     "build": "nest build",
     "build:css": "tailwindcss build -i src/styles.css -o public/css/tailwind.css",
