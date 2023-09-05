@@ -1,12 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('#submitForm').addEventListener('click', () => {
+  const submitButton = document.querySelector('#submitForm');
+
+  submitButton.addEventListener('click', () => {
     const toastSuccess = document.querySelector('#toastSuccess');
     const toastFailure = document.querySelector('#toastFailure');
+    const spinner = document.querySelector('#spinner');
 
     // capture data
     const nameValue = document.querySelector('#name').value;
     const emailValue = document.querySelector('#email').value;
     const addressValue = document.querySelector('#address').value;
+
+    // show spinner
+    spinner.style.display = 'block';
+    submitButton.style.display = 'none';
 
     // send data
     fetch('/form/submit', {
@@ -20,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         address: addressValue,
       }),
     })
-      .then((res) => {
+      .then((_) => {
         // Show the toast
         toastSuccess.style.display = 'block';
       })
@@ -37,6 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // reset values
         document.querySelector('#contactForm').reset();
+
+        // hide spinner
+        spinner.style.display = 'none';
+
+        // show button
+        submitButton.style.display = 'block';
       });
   });
 });
