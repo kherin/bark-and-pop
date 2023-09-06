@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         spinner.style.display = 'none';
 
         // show button
-        submitButton.style.display = 'block';
+        submitButton.style.display = 'flex';
       });
   });
 });
