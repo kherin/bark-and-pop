@@ -3,8 +3,6 @@ import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
 
-// credentials
-import * as credentials from './../../credentials.json';
 const SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets',
 ];
@@ -15,8 +13,8 @@ export class SheetService {
     async processFormData(formData: FormDataDto) {
         try {
             const jwt = new JWT({
-                email: credentials.client_email,
-                key: credentials.private_key,
+                email: process.env.CLIENT_EMAIL,
+                key: process.env.PRIVATE_KEY,
                 scopes: SCOPES,
             });
 
