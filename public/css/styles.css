@@ -15,3 +15,10 @@
   height: 40px;
   animation: spin 1s linear infinite;
 }
+
+@media (min-width: 600px) {
+  .heart-icon {
+    height: 2%;
+    width: 2%;
+  }
+}
